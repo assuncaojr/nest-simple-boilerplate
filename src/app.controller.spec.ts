@@ -15,8 +15,10 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return project name and description', () => {
+      const { projectName, projectDescription } = appController.getIndex()
+      expect(projectName).toEqual('SimpleCrud');
+      expect(projectDescription).toEqual('A simple CRUD developed with NestJS');
     });
   });
 });
