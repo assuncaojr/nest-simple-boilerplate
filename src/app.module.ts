@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import settings, { validate } from './settings';
+import { ApiSettingsService } from './utils/api-settings.service';
 
 const configModule = ConfigModule.forRoot({
   isGlobal: true,
@@ -13,6 +14,6 @@ const configModule = ConfigModule.forRoot({
 @Module({
   imports: [configModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, ApiSettingsService],
 })
 export class AppModule {}

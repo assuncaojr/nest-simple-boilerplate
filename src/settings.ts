@@ -2,7 +2,7 @@
 import { plainToClass } from 'class-transformer';
 import { IsEnum, IsNumber, IsString, validateSync } from 'class-validator';
 
-enum Environment {
+export enum Environment {
   DEVELOPMENT = 'development',
   PRODUCTION = 'production',
   TEST = 'test',
@@ -37,4 +37,5 @@ export default () => ({
   port: +process.env.PORT,
   env: process.env.ENV,
   projectName: process.env.PROJECT_NAME,
+  projectDescription: process.env.PROJECT_DESCRIPTION,
 });
