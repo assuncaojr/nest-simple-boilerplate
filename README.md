@@ -2,7 +2,7 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
 
-<h1>Simple Crud is a super simple NestJS project</h1>
+<h1>NestBoilerplate is a super simple NestJS project</h1>
 
 ## Description
 
