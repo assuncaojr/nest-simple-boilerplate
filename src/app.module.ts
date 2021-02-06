@@ -8,7 +8,6 @@ const configModule = ConfigModule.forRoot({
   isGlobal: true,
   ignoreEnvFile: false,
   validate,
-  // validationSchema,
   load: [settings],
 });
 @Module({
