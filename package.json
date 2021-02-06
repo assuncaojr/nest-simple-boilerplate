@@ -31,6 +31,7 @@
     "rxjs": "^6.5.4"
   },
   "devDependencies": {
+    "commitizen": "^4.2.3",
     "@nestjs/cli": "^7.0.0",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
@@ -43,6 +44,7 @@
     "eslint": "7.1.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
+    "husky": "^4.3.8",
     "jest": "26.0.1",
     "prettier": "^1.19.1",
     "supertest": "^4.0.2",
@@ -51,6 +53,17 @@
     "ts-node": "^8.6.2",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^3.7.4"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && ./node_modules/.bin/git-cz --hook || true",
+      "pre-push": "yarn lint"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "jest": {
     "moduleFileExtensions": [
