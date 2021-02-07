@@ -2,11 +2,11 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
 
-<h1>NestBoilerplate is a super simple NestJS project</h1>
+<h1>NestSimpleBoilerplate is a super simple NestJS boilerplate project</h1>
 
 ## Description
 
-With packages configured:
+With some packages configured:
 * Swagger;
 * Class Validator and Transform (validate .env vars) and url query params;
 * Commitizen and Husky for Git Task Automation;
