@@ -15,10 +15,28 @@ class EnvVariables {
   PORT: number
 
   @IsString()
-  PROJECT_NAME: string
+  PROJECT_NAME: string;
 
   @IsString()
-  PROJECT_DESCRIPTION: string
+  PROJECT_DESCRIPTION: string;
+
+  @IsString()
+  DB_TYPE: string;
+
+  @IsString()
+  DB_HOST: string;
+
+  @IsString()
+  DB_PORT: string;
+
+  @IsString()
+  DB_USERNAME: string;
+
+  @IsString()
+  DB_PASSWORD: string;
+
+  @IsString()
+  DB_NAME: string;
 }
 
 export function validate(config: Record<string, unknown>) {
@@ -33,6 +51,7 @@ export function validate(config: Record<string, unknown>) {
 
   return validateConfig;
 }
+
 export default () => ({
   port: +process.env.PORT,
   env: process.env.ENV,
