@@ -6,7 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import settings, { validate } from './settings';
 import { ApiSettingsService } from './utils/api-settings.service';
-import { dbOptions } from './orm.config';
+import * as dbOptions from './orm.config';
 import { User } from './modules/user/user.entity';
 import { UserModule } from './modules/user/user.module';
 

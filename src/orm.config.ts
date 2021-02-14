@@ -1,8 +1,7 @@
-require('dotenv').config();
-
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { join } from 'path';
 
-export const dbOptions: TypeOrmModuleOptions = {
+const dbOptions: TypeOrmModuleOptions = {
   type: process.env.DB_TYPE as any,
   host: process.env.DB_HOST,
   port: parseInt(process.env.DB_PORT),
@@ -11,5 +10,8 @@ export const dbOptions: TypeOrmModuleOptions = {
   database: process.env.DB_NAME,
   synchronize: false,
   logging: true,
-  entities: [],
+  entities: [join(__dirname, './**/*.entity{.ts,.js}')],
+  migrations: [join(__dirname, './migrations/*.ts')],
 };
+
+export = dbOptions;
