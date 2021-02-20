@@ -7,9 +7,6 @@ export class UserController {
 
   @Get()
   public async getAll(): Promise<any> {
-    return {
-      foo: 'bar',
-    }
-    // return this.userService.findAll();
+    return this.userService.findAll();
   }
 }
