@@ -1,0 +1,38 @@
+version: "3"
+services:
+  nestboilerplate:
+    container_name: nestboilerplate_service
+    build: .
+    env_file: .env
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - ./src:/home/app/src:cached
+      - ./package.json:/home/app/package.json:cached
+    command: yarn start
+    networks:
+      - nest-boilerplate
+    depends_on:
+      - database
+
+  database:
+    image: "mysql:latest"
+    # rename the container, if necessary
+    container_name: mysql_boilerplate
+    restart: on-failure
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    environment:
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+    volumes:
+      - ./.data/mysql:/var/lib/mysql
+    networks:
+      - nest-boilerplate
+
+networks:
+  nest-boilerplate:
+    external:
+      name: nest_boilerplate_network

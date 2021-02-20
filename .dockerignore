@@ -1,0 +1,14 @@
+.git
+.data
+.vscode
+.editorconfig
+.gitignore
+.circleci
+bin
+README.md
+Dockerfile
+scripts
+node_modules
+coverage
+docs
+docker-compose.yml

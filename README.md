@@ -10,6 +10,8 @@ With some packages configured:
 * Swagger;
 * Class Validator and Transform (validate .env vars) and url query params;
 * Commitizen and Husky for Git Task Automation;
+* TypeORM (mySQL)
+* Docker
 * Some packages will be configured soon, such as: mongoDB, Agenda and others.
 
 ## Running the app
@@ -31,6 +33,14 @@ $ npm run start:prod or yarn start:prod
 # unit tests
 $ npm run test or yarn test
 
+```
+## Running TypeORM Migration
+```bash
+# docker
+docker exec nestboilerplate_service yarn typeorm migration:run
+
+# yarn
+yarn typeorm migration:run
 ```
 
 ## License
