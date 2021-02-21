@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BeforeInsert, BeforeUpdate, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import * as bcrypt from 'bcrypt';
 
 @Entity({ name: 'users' })
 export class User {
@@ -19,4 +20,18 @@ export class User {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @BeforeInsert()
+  public beforInsert = async (): Promise<void> => {
+    await this.generatePassword();
+  };
+
+  @BeforeUpdate()
+  async beforeUpdate(): Promise<void> {
+    await this.generatePassword();
+  }
+
+  private async generatePassword(): Promise<void> {
+    this.password = bcrypt.hashSync(this.password, 12);
+  }
 }

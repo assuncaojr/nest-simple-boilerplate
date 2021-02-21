@@ -18,6 +18,11 @@ export class UserService {
     return this.usersRepository.findOne(id);
   }
 
+  async create(user: User): Promise<User> {
+    const entity = Object.assign(new User(), user);
+    return this.usersRepository.save(entity);
+  }
+
   async remove(id: string): Promise<void> {
     await this.usersRepository.delete(id);
   }
