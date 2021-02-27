@@ -62,6 +62,42 @@ describe('UserController', () => {
     expect(body).toEqual(mockedData);
   });
 
+  it('should return a User', async () => {
+    const mockedData = {
+      firstName: 'John',
+      lastName: 'Smith',
+      email: 'john@mail.com',
+      password: '$rat5artara',
+      active: true,
+    };
+
+    mockedRepo.findOne.mockResolvedValue(mockedData);
+    const { body } = await supertest
+      .agent(app.getHttpServer())
+      .get('/users/1')
+      .set('Accept', 'application/json')
+      .expect(200);
+
+    expect(body).toEqual(mockedData);
+  });
+
+  it('should fail to return a user if passed the parameter ID with type string', async () => {
+    const expected = {
+      statusCode: 400,
+      message: 'Validation failed (numeric string is expected)',
+      error: 'Bad Request',
+    };
+
+    const invalidUserId = 'one';
+    const { body } = await supertest
+      .agent(app.getHttpServer())
+      .get(`/users/${invalidUserId}`)
+      .set('Accept', 'application/json')
+      .expect(400);
+
+    expect(body).toEqual(expected);
+  });
+
   it ('should create a user', async () => {
     const body = {
       firstName: 'John',
