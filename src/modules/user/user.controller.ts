@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, ValidationPipe } from '@nestjs/common';
 import { User } from './user.entity';
 import { UserService } from './user.service';
-import { UserFilter } from './uset.filter';
+import { UserFilter } from './user.filter';
 
 @Controller('users')
 export class UserController {
